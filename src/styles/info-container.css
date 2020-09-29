@@ -1,0 +1,23 @@
+.info-container {
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.paper {
+    text-align: center;
+    height: 100%;
+    width: 50%;
+    padding: 3px;
+
+}
+
+h1 {
+    font-size: 70px;
+}
+
+.contents {
+    padding: 3px;
+
+}

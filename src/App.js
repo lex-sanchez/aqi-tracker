@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
+import Header from "./components/Header";
+import { AqiChecker } from "./components/AqiChecker";
 
 function App() {
   return (
     <div className="App">
-        <header>
-            <h1>AQI tracker app yeet</h1>
-        </header>
+        <Header />
+        <AqiChecker />
     </div>
   );
 }
