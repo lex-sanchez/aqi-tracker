@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Paper } from '@material-ui/core';
+import Loader from 'react-loader-spinner'
 import '../styles/info-container.css';
 
 const InfoContainer = props => {
@@ -12,6 +13,7 @@ const InfoContainer = props => {
         ReportingArea: reportingArea,
         StateCode: stateCode,
         zipCode,
+        isLoading,
     } = props;
 
     const { Name: name, Number: number } = category || {}; // default to empty object until data comes in
@@ -19,12 +21,12 @@ const InfoContainer = props => {
     const DataReading = () => {
         return (
             <div className="contents">
-                {/*<h2>The air quality index for {reportingArea}, {stateCode} is</h2>*/}
-                {/*<h1>{aqi}</h1>*/}
-                {/*<p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>*/}
                 <h2>The air quality index for {reportingArea}, {stateCode} is</h2>
-                <h1>69</h1>
+                <h1>{aqi}</h1>
                 <p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>
+                {/*<h2>The air quality index for {reportingArea}, {stateCode} is</h2>*/}
+                {/*<h1>69</h1>*/}
+                {/*<p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>*/}
             </div>
 
         )
@@ -32,14 +34,13 @@ const InfoContainer = props => {
 
     return (
       <div className="info-container">
+          {isLoading ? <Loader
+              type="Circles"
+              timeout={3000}
+              /> :
           <Paper className="paper" elevation={3}>
-              {/*<div className="contents">*/}
-              {/*    <h2>The air quality index for {reportingArea}, {stateCode} is</h2>*/}
-              {/*    <h1>{aqi}</h1>*/}
-              {/*    <p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>*/}
-              {/*</div>*/}
-              <DataReading />
-          </Paper>
+               <DataReading />
+          </Paper>}
       </div>
   )
 };
