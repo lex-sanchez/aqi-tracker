@@ -1,26 +1,35 @@
 import React from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 
-const InfoCard = () => {
+const InfoCard = (props) => {
+    const { aqiLevel, valuesOfIndex, description, color } = props;
+    const styles = {
+        backgroundColor: color,
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    };
+
   return (
-      <div className="info-card">
           <Flippy
               flipDirection="horizontal"
               flipOnHover={true} // default false
+              style={{ width: '150px', height: '200px' }}
           >
               <FrontSide
-                  style={{
-                      backgroundColor: '#41669d',
-                  }}
+                  style={styles}
               >
-                  <h1>Test</h1>
+                  <div>
+                      <h2>{aqiLevel}</h2>
+                      <h3>{valuesOfIndex}</h3>
+                  </div>
               </FrontSide>
               <BackSide
-                  style={{ backgroundColor: '#175852'}}>
-                  <h1>Test</h1>
+                  style={styles}>
+                  <p>{description}</p>
               </BackSide>
           </Flippy>
-      </div>
   )
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from '../utils/api';
 import InfoContainer from "./InfoContainer";
 import InfoCard from "./InfoCard";
+import aqiInformation from "../utils/aqiInformation";
 import '../styles/aqi-checker.css';
 
 const API_KEY = 'C469D269-9140-4F84-9F9D-7CED9718DAB5';
@@ -14,6 +15,7 @@ export class AqiChecker extends React.Component {
         this.state = {
             zipCode: null,
             isLoading: false,
+            zipCodeEntered: false,
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,6 +44,7 @@ export class AqiChecker extends React.Component {
             this.setState(prevState => Object.assign(prevState, mostRecentData));
             this.setState({
                 isLoading: false,
+                zipCodeEntered: true,
             })
         } catch(e) {
             console.log(`error`, e);
@@ -66,7 +69,13 @@ export class AqiChecker extends React.Component {
                     <button onClick={() => this.getAqiData(this.state.zipCode)}>Get data</button>
                 </div>
                 <InfoContainer {...props} />
-                <InfoCard />
+                <div className="info-cards">
+                    {aqiInformation.map(info => {
+                        return (
+                                <InfoCard {...info} />
+                        )
+                    })}
+                </div>
             </div>
         )
     }

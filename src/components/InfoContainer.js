@@ -12,21 +12,32 @@ const InfoContainer = props => {
         HourObserved: hourObserved,
         ReportingArea: reportingArea,
         StateCode: stateCode,
-        zipCode,
         isLoading,
+        zipCodeEntered,
     } = props;
 
     const { Name: name, Number: number } = category || {}; // default to empty object until data comes in
 
-    const DataReading = () => {
+    const Information = () => {
         return (
-            <div className="contents">
+            <div>
                 <h2>The air quality index for {reportingArea}, {stateCode} is</h2>
                 <h1>{aqi}</h1>
+                <span className="date-time" style={{fontSize: "12px"}}>
+                    On {dateObserved} at {hourObserved}
+                </span>
                 <p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>
-                {/*<h2>The air quality index for {reportingArea}, {stateCode} is</h2>*/}
-                {/*<h1>69</h1>*/}
-                {/*<p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>*/}
+            </div>
+        )
+    }
+
+    const DataReading = props => {
+        const { zipCodeEntered } = props;
+        return (
+            <div className="contents">
+                {
+                    !zipCodeEntered ? <h2>Enter a ZIP code to get started</h2> : <Information />
+                }
             </div>
 
         )
@@ -35,11 +46,13 @@ const InfoContainer = props => {
     return (
       <div className="info-container">
           {isLoading ? <Loader
-              type="Circles"
+              type="Oval"
               timeout={3000}
+              height={200}
+              width={200}
               /> :
-          <Paper className="paper" elevation={3}>
-               <DataReading />
+          <Paper className="paper" elevation={10}>
+               <DataReading  zipCodeEntered={zipCodeEntered}/>
           </Paper>}
       </div>
   )

@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <div className="header">
             <header>
-                <h1>Smoke Sensor</h1>
             </header>
         </div>
     )
