@@ -40,7 +40,6 @@ export class AqiChecker extends React.Component {
             });
 
             const { data } = response;
-            console.log(response);
             const mostRecentData = data[0];
 
             if (data.length === 0) {
@@ -65,7 +64,6 @@ export class AqiChecker extends React.Component {
 
     render() {
         const props = {...this.state};
-        console.log(process.env.REACT_APP_API_KEY);
         return (
             <div className="aqi-checker">
                 <InfoContainer {...props} />
