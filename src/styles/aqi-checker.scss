@@ -1,0 +1,60 @@
+.aqi-checker {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.info-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 40px;
+    flex-wrap: wrap;
+}
+
+.data-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.get-data-btn {
+    padding-top: 50px;
+}
+
+.flippy-container {
+    flex-basis: 25%;
+    margin: 3px;
+}
+
+///*https://codepen.io/thebabydino/pen/mRrPwB*/
+//
+//$char-w: .95ch;
+//$gap: .5*$char-w;
+//$n-char: 5;
+//$in-w: $n-char*($char-w + $gap);
+//
+//input {
+//    display: block;
+//    margin: .75em auto;
+//    border: none;
+//    padding: 0;
+//    width: $in-w;
+//    background: repeating-linear-gradient(90deg,
+//            dimgrey 0, dimgrey $char-w,
+//            transparent 0, transparent $char-w + $gap)
+//    0 100%/ #{$in-w - $gap} 2px no-repeat;
+//    font: 5ch Montserrat, consolas, monospace;
+//    letter-spacing: $gap;
+//
+//    &:focus {
+//        outline: none;
+//    }
+//}
+

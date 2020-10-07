@@ -1,9 +1,10 @@
 import React from 'react';
+import { Input, TextField, Button, withStyles } from '@material-ui/core';
 import axios from '../utils/api';
 import InfoContainer from "./InfoContainer";
 import InfoCard from "./InfoCard";
 import aqiInformation from "../utils/aqiInformation";
-import '../styles/aqi-checker.css';
+import '../styles/aqi-checker.scss';
 
 const API_KEY = 'C469D269-9140-4F84-9F9D-7CED9718DAB5';
 const API_BASE_URL = '/aq/observation/zipCode/current';
@@ -61,14 +62,24 @@ export class AqiChecker extends React.Component {
         const props = {...this.state};
         return (
             <div className="aqi-checker">
-                <div className="data-inputs">
-                    <label>
-                        ZIP code:
-                        <input type="text" name="name" onChange={e => this.handleInputChange(e)}/>
-                    </label>
-                    <button onClick={() => this.getAqiData(this.state.zipCode)}>Get data</button>
-                </div>
                 <InfoContainer {...props} />
+                <div className="data-inputs">
+                    <TextField
+                        id="zip-code-field"
+                        label="Zip Code"
+                        variant="outlined"
+                        color="secondary"
+                        onChange={e => this.handleInputChange(e)}
+                    />
+                    <Button
+                        style={{marginTop: "10px"}}
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => this.getAqiData(this.state.zipCode)}
+                    >
+                        Get Data
+                    </Button>
+                </div>
                 <div className="info-cards">
                     {aqiInformation.map(info => {
                         return (
