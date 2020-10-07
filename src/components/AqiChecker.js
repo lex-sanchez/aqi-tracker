@@ -6,7 +6,7 @@ import InfoCard from "./InfoCard";
 import aqiInformation from "../utils/aqiInformation";
 import '../styles/aqi-checker.scss';
 
-const API_KEY = 'C469D269-9140-4F84-9F9D-7CED9718DAB5';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const API_BASE_URL = '/aq/observation/zipCode/current';
 
 export class AqiChecker extends React.Component {
@@ -65,7 +65,7 @@ export class AqiChecker extends React.Component {
 
     render() {
         const props = {...this.state};
-        console.log(props);
+        console.log(process.env.REACT_APP_API_KEY);
         return (
             <div className="aqi-checker">
                 <InfoContainer {...props} />
