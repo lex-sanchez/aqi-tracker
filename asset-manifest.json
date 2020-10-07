@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/aqi-tracker/static/css/main.d18f508a.chunk.css",
+    "main.js": "/aqi-tracker/static/js/main.936925a7.chunk.js",
+    "main.js.map": "/aqi-tracker/static/js/main.936925a7.chunk.js.map",
+    "runtime-main.js": "/aqi-tracker/static/js/runtime-main.f563716d.js",
+    "runtime-main.js.map": "/aqi-tracker/static/js/runtime-main.f563716d.js.map",
+    "static/css/2.70e35f80.chunk.css": "/aqi-tracker/static/css/2.70e35f80.chunk.css",
+    "static/js/2.e3772661.chunk.js": "/aqi-tracker/static/js/2.e3772661.chunk.js",
+    "static/js/2.e3772661.chunk.js.map": "/aqi-tracker/static/js/2.e3772661.chunk.js.map",
+    "index.html": "/aqi-tracker/index.html",
+    "precache-manifest.e30c91f1045276c2d056a7c620815bd4.js": "/aqi-tracker/precache-manifest.e30c91f1045276c2d056a7c620815bd4.js",
+    "service-worker.js": "/aqi-tracker/service-worker.js",
+    "static/css/2.70e35f80.chunk.css.map": "/aqi-tracker/static/css/2.70e35f80.chunk.css.map",
+    "static/css/main.d18f508a.chunk.css.map": "/aqi-tracker/static/css/main.d18f508a.chunk.css.map",
+    "static/js/2.e3772661.chunk.js.LICENSE.txt": "/aqi-tracker/static/js/2.e3772661.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f563716d.js",
+    "static/css/2.70e35f80.chunk.css",
+    "static/js/2.e3772661.chunk.js",
+    "static/css/main.d18f508a.chunk.css",
+    "static/js/main.936925a7.chunk.js"
+  ]
+}
