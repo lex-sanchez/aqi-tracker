@@ -17,6 +17,7 @@ export class AqiChecker extends React.Component {
             zipCode: null,
             isLoading: false,
             zipCodeEntered: false,
+            noDataAvailable: false,
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -39,10 +40,14 @@ export class AqiChecker extends React.Component {
             });
 
             const { data } = response;
-
+            console.log(response);
             const mostRecentData = data[0];
 
-            this.setState(prevState => Object.assign(prevState, mostRecentData));
+            if (data.length === 0) {
+                this.setState({ noDataAvailable: true });
+            } else {
+                this.setState(prevState => Object.assign(prevState, mostRecentData));
+            }
             this.setState({
                 isLoading: false,
                 zipCodeEntered: true,
@@ -60,15 +65,15 @@ export class AqiChecker extends React.Component {
 
     render() {
         const props = {...this.state};
+        console.log(props);
         return (
             <div className="aqi-checker">
                 <InfoContainer {...props} />
                 <div className="data-inputs">
                     <TextField
                         id="zip-code-field"
-                        label="Zip Code"
+                        label="ZIP Code"
                         variant="outlined"
-                        color="secondary"
                         onChange={e => this.handleInputChange(e)}
                     />
                     <Button

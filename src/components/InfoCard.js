@@ -27,7 +27,7 @@ const InfoCard = (props) => {
               </FrontSide>
               <BackSide
                   style={styles}>
-                  <p>{description}</p>
+                  <b><p>{description}</p></b>
               </BackSide>
           </Flippy>
   )

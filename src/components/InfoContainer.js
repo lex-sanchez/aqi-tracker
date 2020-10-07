@@ -2,6 +2,7 @@ import React from 'react';
 import { Paper } from '@material-ui/core';
 import Loader from 'react-loader-spinner'
 import '../styles/info-container.css';
+import {convertTime} from "../utils/timeUtils";
 
 const InfoContainer = props => {
     //todo, how to get rid of wrong casing from the start?
@@ -14,17 +15,29 @@ const InfoContainer = props => {
         StateCode: stateCode,
         isLoading,
         zipCodeEntered,
+        noDataAvailable,
     } = props;
 
     const { Name: name, Number: number } = category || {}; // default to empty object until data comes in
 
     const Information = () => {
+        if (noDataAvailable) {
+            return (
+                <div>
+                    <h2>No data available for your ZIP code</h2>
+                    <h3>Please try again with a different ZIP code close by in the same area</h3>
+                </div>
+            )
+        }
+
+        const convertedTime = convertTime(hourObserved);
+
         return (
             <div>
                 <h2>The air quality index for {reportingArea}, {stateCode} is</h2>
                 <h1>{aqi}</h1>
                 <span className="date-time" style={{fontSize: "12px"}}>
-                    On {dateObserved} at {hourObserved}
+                    On {dateObserved} at {convertedTime}
                 </span>
                 <p>This reading classifies as a level {number} ({name}). Hover over the cards below for more information.</p>
             </div>
@@ -47,7 +60,6 @@ const InfoContainer = props => {
       <div className="info-container">
           {isLoading ? <Loader
               type="Oval"
-              timeout={3000}
               height={200}
               width={200}
               /> :
